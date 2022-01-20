@@ -14,6 +14,7 @@ class _RootState extends State<Root> {
     return Scaffold(
       backgroundColor: white,
       appBar: getAppBar(),
+      bottomNavigationBar: getBottomNavigationBar(),
     );
   }
 
@@ -65,4 +66,10 @@ class _RootState extends State<Root> {
       )),
     );
   }
+
+Widget getBottomNavigationBar(){
+  return Container(
+
+  );
+}
 }
