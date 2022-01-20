@@ -47,6 +47,18 @@ class _RootState extends State<Root> {
                   ),
                 ),
               ),
+              Positioned(
+                  top: -4,
+                  right: -4,
+                  child: Container(
+                    height: 14,
+                    width: 14,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: primary,
+                      border: Border.all(width: 1.5, color: white),
+                    ),
+                  ))
             ])
           ],
         ),
