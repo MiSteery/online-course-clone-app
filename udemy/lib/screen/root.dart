@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:udemy/color.dart';
+import 'package:udemy/model/constant.dart';
 
 class Root extends StatefulWidget {
   @override
@@ -28,11 +29,25 @@ class _RootState extends State<Root> {
           children: [
             IconButton(
               splashRadius: 25,
-                onPressed: () {},
-                icon: SvgPicture.asset(
-                  'assets/images/menu.svg',
-                  height: 24,
-                ))
+              onPressed: () {},
+              icon: SvgPicture.asset(
+                'assets/images/menu.svg',
+                height: 24,
+              ),
+            ),
+            Stack(clipBehavior: Clip.none, children: [
+              Container(
+                height: 38,
+                width: 38,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  image: DecorationImage(
+                    image: NetworkImage(profileUrl),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+            ])
           ],
         ),
       )),
