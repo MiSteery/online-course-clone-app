@@ -32,6 +32,17 @@ class _OnBordoingState extends State<OnBordoing> {
         'Done',
         style: TextStyle(color: primary),
       ),
+      dotsDecorator: DotsDecorator(
+        color: hightLightGrey,
+        size: Size(10, 10),
+        activeColor: primary,
+        activeSize: Size(30, 10),
+        activeShape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(25),
+          ),
+        ),
+      ),
       pages: List.generate(onBoardings.length, (index) {
         return PageViewModel(
           title: onBoardings[index]['title'],
