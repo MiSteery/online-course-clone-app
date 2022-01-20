@@ -67,9 +67,23 @@ class _RootState extends State<Root> {
     );
   }
 
-Widget getBottomNavigationBar(){
-  return Container(
-
-  );
-}
+  Widget getBottomNavigationBar() {
+    return Container(
+      height: 65,
+      width: double.infinity,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.vertical(
+            top: Radius.circular(20),
+          ),
+          color: white,
+          boxShadow: [
+            BoxShadow(
+              color: hightLightGrey.withOpacity(0.5),
+              spreadRadius: 5,
+              blurRadius: 7,
+              offset: Offset(0, 3),
+            )
+          ]),
+    );
+  }
 }
