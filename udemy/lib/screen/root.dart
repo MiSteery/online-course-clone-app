@@ -104,9 +104,8 @@ class _RootState extends State<Root> {
                     : SvgPicture.asset(
                         'assets/images/home_inactive.svg',
                         height: 20,
-                        color: primary,
                       )),
-                        IconButton(
+            IconButton(
                 onPressed: () {
                   setState(() {
                     selectedIndex = 1;
@@ -121,9 +120,8 @@ class _RootState extends State<Root> {
                     : SvgPicture.asset(
                         'assets/images/search_inactive.svg',
                         height: 20,
-                        color: primary,
                       )),
-                       IconButton(
+            IconButton(
                 onPressed: () {
                   setState(() {
                     selectedIndex = 2;
@@ -138,15 +136,14 @@ class _RootState extends State<Root> {
                     : SvgPicture.asset(
                         'assets/images/play_inactive.svg',
                         height: 20,
-                        color: primary,
                       )),
-                       IconButton(
+            IconButton(
                 onPressed: () {
                   setState(() {
-                    selectedIndex =3;
+                    selectedIndex = 3;
                   });
                 },
-                icon: selectedIndex ==3
+                icon: selectedIndex == 3
                     ? SvgPicture.asset(
                         'assets/images/chat_active.svg',
                         height: 20,
@@ -155,9 +152,8 @@ class _RootState extends State<Root> {
                     : SvgPicture.asset(
                         'assets/images/chat_inactive.svg',
                         height: 20,
-                        color: primary,
                       )),
-                       IconButton(
+            IconButton(
                 onPressed: () {
                   setState(() {
                     selectedIndex = 4;
@@ -172,9 +168,7 @@ class _RootState extends State<Root> {
                     : SvgPicture.asset(
                         'assets/images/user_inactive.svg',
                         height: 20,
-                        color: primary,
                       )),
-                      
           ],
         ));
   }
