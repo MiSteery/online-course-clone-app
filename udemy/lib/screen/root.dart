@@ -123,6 +123,24 @@ class _RootState extends State<Root> {
                         height: 20,
                         color: primary,
                       )),
+                       IconButton(
+                onPressed: () {
+                  setState(() {
+                    selectedIndex = 2;
+                  });
+                },
+                icon: selectedIndex == 2
+                    ? SvgPicture.asset(
+                        'assets/images/play_active.svg',
+                        height: 20,
+                        color: primary,
+                      )
+                    : SvgPicture.asset(
+                        'assets/images/play_inactive.svg',
+                        height: 20,
+                        color: primary,
+                      )),
+                      
           ],
         ));
   }
