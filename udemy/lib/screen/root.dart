@@ -9,6 +9,7 @@ class Root extends StatefulWidget {
 }
 
 class _RootState extends State<Root> {
+  var selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,21 +70,43 @@ class _RootState extends State<Root> {
 
   Widget getBottomNavigationBar() {
     return Container(
-      height: 65,
-      width: double.infinity,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.vertical(
-            top: Radius.circular(20),
-          ),
-          color: white,
-          boxShadow: [
-            BoxShadow(
-              color: hightLightGrey.withOpacity(0.5),
-              spreadRadius: 5,
-              blurRadius: 7,
-              offset: Offset(0, 3),
-            )
-          ]),
-    );
+        height: 65,
+        width: double.infinity,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.vertical(
+              top: Radius.circular(20),
+            ),
+            color: white,
+            boxShadow: [
+              BoxShadow(
+                color: hightLightGrey.withOpacity(0.5),
+                spreadRadius: 5,
+                blurRadius: 7,
+                offset: Offset(0, 3),
+              )
+            ]),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            IconButton(
+                onPressed: () {
+                  setState(() {
+                    selectedIndex = 0;
+                  });
+                },
+                icon: selectedIndex == 0
+                    ? SvgPicture.asset(
+                        'assets/images/home_active.svg',
+                        height: 20,
+                        color: primary,
+                      )
+                    : SvgPicture.asset(
+                        'assets/images/home_inactive.svg',
+                        height: 20,
+                        color: primary,
+                      )),
+          ],
+        ));
   }
 }
