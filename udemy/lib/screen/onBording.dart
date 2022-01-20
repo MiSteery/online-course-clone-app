@@ -3,6 +3,7 @@ import 'package:introduction_screen/introduction_screen.dart';
 
 import 'package:udemy/color.dart';
 import 'package:udemy/model/onBording.dart';
+import 'package:udemy/screen/root.dart';
 
 class OnBordoing extends StatefulWidget {
   @override
@@ -14,7 +15,13 @@ class _OnBordoingState extends State<OnBordoing> {
   @override
   Widget build(BuildContext context) {
     return IntroductionScreen(
-      onDone: () {},
+      onDone: () {
+        Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (_) => Root(),
+            ));
+      },
       key: _introKey,
       globalBackgroundColor: white,
       showSkipButton: true,
@@ -30,7 +37,7 @@ class _OnBordoingState extends State<OnBordoing> {
       ),
       done: Text(
         'Done',
-        style: TextStyle(color: primary),
+        style: TextStyle(color: primary, fontWeight: FontWeight.bold),
       ),
       dotsDecorator: DotsDecorator(
         color: hightLightGrey,
