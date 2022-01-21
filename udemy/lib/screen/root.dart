@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:udemy/color.dart';
 import 'package:udemy/model/constant.dart';
+import 'package:udemy/screen/account.dart';
+import 'package:udemy/screen/chat.dart';
+import 'package:udemy/screen/course.dart';
+import 'package:udemy/screen/home.dart';
+import 'package:udemy/screen/search.dart';
 
 class Root extends StatefulWidget {
   @override
@@ -15,6 +20,7 @@ class _RootState extends State<Root> {
     return Scaffold(
       backgroundColor: white,
       appBar: getAppBar(),
+      body: getBody(),
       bottomNavigationBar: getBottomNavigationBar(),
     );
   }
@@ -68,6 +74,19 @@ class _RootState extends State<Root> {
     );
   }
 
+Widget getBody(){
+  return IndexedStack(
+    index: selectedIndex,
+    children: [
+      Home(),
+      Search(),
+      Course(),
+      Chat(),
+      Account(),
+    ],
+  );
+}
+ 
   Widget getBottomNavigationBar() {
     return Container(
         height: 65,
