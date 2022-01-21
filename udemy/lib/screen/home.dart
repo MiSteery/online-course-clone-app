@@ -8,12 +8,14 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+
     return Scaffold(
-      body: getBody(),
+      body: getBody(size),
     );
   }
 
-  Widget getBody() {
+  Widget getBody(size) {
     return ListView(
       children: [
         SizedBox(
@@ -41,6 +43,19 @@ class Home extends StatelessWidget {
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
                 ),
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              Row(
+                children: [
+                  Container(
+                      height: 45,
+                      width: (size.width - 30) * 0.85,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          border: Border.all(width: 1, color: grey)))
+                ],
               )
             ],
           ),
