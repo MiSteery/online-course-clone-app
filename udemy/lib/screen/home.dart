@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:udemy/color.dart';
 import 'package:udemy/model/constant.dart';
 
@@ -61,19 +62,34 @@ class Home extends StatelessWidget {
                       child: TextField(
                         cursorColor: black.withOpacity(0.5),
                         decoration: InputDecoration(
-                            border: InputBorder.none,
-                            prefixIcon: Icon(
-                              Icons.search,
-                              color: black.withOpacity(0.5),
-                            ),
-                            hintText: 'Search your course....',
-                            hintStyle: TextStyle(
-                              color: black.withOpacity(0.5),
-                            ),
-                            ),
+                          border: InputBorder.none,
+                          prefixIcon: Icon(
+                            Icons.search,
+                            color: black.withOpacity(0.5),
+                          ),
+                          hintText: 'Search your course....',
+                          hintStyle: TextStyle(
+                            color: black.withOpacity(0.5),
+                          ),
+                        ),
                       ),
                     ),
-                  ),               
+                  ),
+                  Spacer(),
+                  Container(
+                    height: 45,
+                    width: (size.width - 30) * 0.11,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      color: primary,
+                    ),
+                    child: SvgPicture.asset(
+                      'assets/images/filter.svg',
+                      height: 24,
+                      color: white,
+                    ),
+                  ),
                 ],
               )
             ],
