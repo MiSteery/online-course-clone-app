@@ -229,6 +229,28 @@ class _HomeState extends State<Home> {
               );
             }),
           ),
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15),
+          child: Wrap(
+            spacing: 15,
+            runSpacing: 15,
+            children: List.generate(categoryAll.length, (index) {
+              return Container(
+                height: 120,
+                width: (size.width - 45) / 2,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    image: DecorationImage(
+                      image: NetworkImage(categoryAll[index]['imageUrl']),
+                      fit: BoxFit.cover,
+                    )),
+              );
+            }),
+          ),
         )
       ],
     );
