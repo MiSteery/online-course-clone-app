@@ -1,11 +1,21 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:udemy/color.dart';
 import 'package:udemy/model/constant.dart';
+import 'package:udemy/model/home.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
+
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  int activeCarouseIndex = 0;
+  int selectedCategoryIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +56,7 @@ class Home extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 5,
+                height: 30,
               ),
               Row(
                 children: [
@@ -91,10 +101,157 @@ class Home extends StatelessWidget {
                     ),
                   ),
                 ],
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Column(
+                children: [
+                  CarouselSlider(
+                    options: CarouselOptions(
+                        aspectRatio: 16 / 9,
+                        viewportFraction: 1.0,
+                        autoPlayCurve: Curves.fastLinearToSlowEaseIn,
+                        autoPlayAnimationDuration: Duration(seconds: 2),
+                        onPageChanged: (index, reason) {
+                          setState(() {
+                            activeCarouseIndex = index;
+                          });
+                        }),
+                    items: List.generate(
+                      banners.length,
+                      (index) {
+                        return Container(
+                            decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          image: DecorationImage(
+                            image: NetworkImage(banners[index]),
+                            fit: BoxFit.cover,
+                          ),
+                        ));
+                      },
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(banners.length, (index) {
+                        return activeCarouseIndex == index
+                            ? Padding(
+                                padding: const EdgeInsets.only(
+                                  right: 8,
+                                ),
+                                child: Container(
+                                  height: 10,
+                                  width: 30,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(5),
+                                      color: primary),
+                                ),
+                              )
+                            : Padding(
+                                padding: const EdgeInsets.only(
+                                  right: 8,
+                                ),
+                                child: Container(
+                                  height: 10,
+                                  width: 10,
+                                  decoration: BoxDecoration(
+                                      shape: BoxShape.circle, color: lightGrey),
+                                ),
+                              );
+                      }))
+                ],
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Choice your course',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    'See All',
+                    style: TextStyle(
+                        fontSize: 16, fontWeight: FontWeight.bold, color: grey),
+                  ),
+                ],
               )
             ],
           ),
         ),
+        SizedBox(
+          height: 20,
+        ),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: List.generate(categories.length, (index) {
+              return Padding(
+                padding: EdgeInsets.only(
+                    left: index == 0 ? 15 : 10,
+                    right: index == (categories.length) - 1 ? 15 : 0),
+                child: InkWell(
+                  onTap: () {
+                    setState(() {
+                      selectedCategoryIndex = index;
+                    });
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      color: selectedCategoryIndex == index
+                          ? primary
+                          : Colors.transparent,
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 18,
+                        vertical: 5,
+                      ),
+                      child: Text(
+                        categories[index],
+                        style: TextStyle(
+                          color: selectedCategoryIndex == index ? white : black,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              );
+            }),
+          ),
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15),
+          child: Wrap(
+            spacing: 15,
+            runSpacing: 15,
+            children: List.generate(categoryAll.length, (index) {
+              return Container(
+                height: 120,
+                width: (size.width - 45) / 2,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    image: DecorationImage(
+                      image: NetworkImage(categoryAll[index]['imageUrl']),
+                      fit: BoxFit.cover,
+                    )),
+              );
+            }),
+          ),
+        )
       ],
     );
   }
