@@ -14,6 +14,8 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  int activeCarouseIndex = 0 ;
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -110,7 +112,11 @@ class _HomeState extends State<Home> {
                         viewportFraction: 1.0,
                         autoPlayCurve: Curves.fastLinearToSlowEaseIn,
                         autoPlayAnimationDuration: Duration(seconds: 2),
-                        onPageChanged: (index, reason) {}),
+                        onPageChanged: (index, reason) {
+                          setState(() {
+                            activeCarouseIndex = index;
+                          });
+                        }),
                     items: List.generate(
                       banners.length,
                       (index) {
@@ -119,12 +125,42 @@ class _HomeState extends State<Home> {
                             borderRadius: BorderRadius.circular(15),
                             image: DecorationImage(
                                 image: NetworkImage(banners[index]),
-                                fit: BoxFit.cover),
-                          ),
+                                fit: BoxFit.cover,
+                                ),
+                          )
                         );
                       },
                     ),
                   ),
+                  SizedBox(height: 10,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children:List.generate(banners.length, (index) {
+                      return activeCarouseIndex == index
+                      ? Padding (padding: const EdgeInsets.only(right: 8,),
+                      child: Container(
+                        height: 10,
+                        width: 30,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          color: primary
+                        ),
+                      ),
+                      )
+                      :
+                      Padding (padding: const EdgeInsets.only(right: 8,),
+                      child: Container(
+                        height: 10,
+                        width: 10,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: lightGrey
+                        ),
+                      ),
+                      );
+
+                    })
+                  )
                 ],
               ),
             ],
