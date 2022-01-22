@@ -14,7 +14,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  int activeCarouseIndex = 0 ;
+  int activeCarouseIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -121,48 +121,64 @@ class _HomeState extends State<Home> {
                       banners.length,
                       (index) {
                         return Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
-                            image: DecorationImage(
-                                image: NetworkImage(banners[index]),
-                                fit: BoxFit.cover,
-                                ),
-                          )
-                        );
+                            decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          image: DecorationImage(
+                            image: NetworkImage(banners[index]),
+                            fit: BoxFit.cover,
+                          ),
+                        ));
                       },
                     ),
                   ),
-                  SizedBox(height: 10,),
+                  SizedBox(
+                    height: 10,
+                  ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children:List.generate(banners.length, (index) {
-                      return activeCarouseIndex == index
-                      ? Padding (padding: const EdgeInsets.only(right: 8,),
-                      child: Container(
-                        height: 10,
-                        width: 30,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5),
-                          color: primary
-                        ),
-                      ),
-                      )
-                      :
-                      Padding (padding: const EdgeInsets.only(right: 8,),
-                      child: Container(
-                        height: 10,
-                        width: 10,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: lightGrey
-                        ),
-                      ),
-                      );
-
-                    })
-                  )
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(banners.length, (index) {
+                        return activeCarouseIndex == index
+                            ? Padding(
+                                padding: const EdgeInsets.only(
+                                  right: 8,
+                                ),
+                                child: Container(
+                                  height: 10,
+                                  width: 30,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(5),
+                                      color: primary),
+                                ),
+                              )
+                            : Padding(
+                                padding: const EdgeInsets.only(
+                                  right: 8,
+                                ),
+                                child: Container(
+                                  height: 10,
+                                  width: 10,
+                                  decoration: BoxDecoration(
+                                      shape: BoxShape.circle, color: lightGrey),
+                                ),
+                              );
+                      }))
                 ],
               ),
+              SizedBox(
+                height: 20,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Choice your course',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  )
+                ],
+              )
             ],
           ),
         ),
