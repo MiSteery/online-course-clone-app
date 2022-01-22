@@ -200,7 +200,7 @@ class _HomeState extends State<Home> {
                     left: index == 0 ? 15 : 10,
                     right: index == (categories.length) - 1 ? 15 : 0),
                 child: InkWell(
-                  onTap: () { 
+                  onTap: () {
                     setState(() {
                       selectedCategoryIndex = index;
                     });
@@ -208,7 +208,9 @@ class _HomeState extends State<Home> {
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
-                      color: primary,
+                      color: selectedCategoryIndex == index
+                          ? primary
+                          : Colors.transparent,
                     ),
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
@@ -218,7 +220,7 @@ class _HomeState extends State<Home> {
                       child: Text(
                         categories[index],
                         style: TextStyle(
-                          color: white,
+                          color: selectedCategoryIndex == index ? white : black,
                         ),
                       ),
                     ),
