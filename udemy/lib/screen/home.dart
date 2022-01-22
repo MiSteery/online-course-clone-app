@@ -6,9 +6,14 @@ import 'package:udemy/color.dart';
 import 'package:udemy/model/constant.dart';
 import 'package:udemy/model/home.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -97,26 +102,30 @@ class Home extends StatelessWidget {
               SizedBox(
                 height: 30,
               ),
-              CarouselSlider(
-                options: CarouselOptions(
-                    aspectRatio: 16 / 9,
-                    viewportFraction: 1.0,
-                    autoPlayCurve: Curves.fastLinearToSlowEaseIn,
-                    autoPlayAnimationDuration: Duration(seconds: 2),
-                    onPageChanged: (index, reason) {}),
-                items: List.generate(
-                  banners.length,
-                  (index) {
-                    return Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        image: DecorationImage(
-                            image: NetworkImage(banners[index]),
-                            fit: BoxFit.cover),
-                      ),
-                    );
-                  },
-                ),
+              Column(
+                children: [
+                  CarouselSlider(
+                    options: CarouselOptions(
+                        aspectRatio: 16 / 9,
+                        viewportFraction: 1.0,
+                        autoPlayCurve: Curves.fastLinearToSlowEaseIn,
+                        autoPlayAnimationDuration: Duration(seconds: 2),
+                        onPageChanged: (index, reason) {}),
+                    items: List.generate(
+                      banners.length,
+                      (index) {
+                        return Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            image: DecorationImage(
+                                image: NetworkImage(banners[index]),
+                                fit: BoxFit.cover),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
