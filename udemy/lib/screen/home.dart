@@ -15,6 +15,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int activeCarouseIndex = 0;
+  int selectedCategoryIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -180,16 +181,53 @@ class _HomeState extends State<Home> {
                   Text(
                     'See All',
                     style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: grey
-                    ),
+                        fontSize: 16, fontWeight: FontWeight.bold, color: grey),
                   ),
                 ],
               )
             ],
           ),
         ),
+        SizedBox(
+          height: 20,
+        ),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: List.generate(categories.length, (index) {
+              return Padding(
+                padding: EdgeInsets.only(
+                    left: index == 0 ? 15 : 10,
+                    right: index == (categories.length) - 1 ? 15 : 0),
+                child: InkWell(
+                  onTap: () { 
+                    setState(() {
+                      selectedCategoryIndex = index;
+                    });
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      color: primary,
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 18,
+                        vertical: 5,
+                      ),
+                      child: Text(
+                        categories[index],
+                        style: TextStyle(
+                          color: white,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              );
+            }),
+          ),
+        )
       ],
     );
   }
