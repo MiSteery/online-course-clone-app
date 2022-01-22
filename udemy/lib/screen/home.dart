@@ -1,8 +1,10 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:udemy/color.dart';
 import 'package:udemy/model/constant.dart';
+import 'package:udemy/model/home.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -46,7 +48,7 @@ class Home extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 5,
+                height: 30,
               ),
               Row(
                 children: [
@@ -91,7 +93,31 @@ class Home extends StatelessWidget {
                     ),
                   ),
                 ],
-              )
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              CarouselSlider(
+                options: CarouselOptions(
+                    aspectRatio: 16 / 9,
+                    viewportFraction: 1.0,
+                    autoPlayCurve: Curves.fastLinearToSlowEaseIn,
+                    autoPlayAnimationDuration: Duration(seconds: 2),
+                    onPageChanged: (index, reason) {}),
+                items: List.generate(
+                  banners.length,
+                  (index) {
+                    return Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        image: DecorationImage(
+                            image: NetworkImage(banners[index]),
+                            fit: BoxFit.cover),
+                      ),
+                    );
+                  },
+                ),
+              ),
             ],
           ),
         ),
