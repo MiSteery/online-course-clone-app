@@ -176,7 +176,15 @@ class _HomeState extends State<Home> {
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                     ),
-                  )
+                  ),
+                  Text(
+                    'See All',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: grey
+                    ),
+                  ),
                 ],
               )
             ],
