@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:udemy/color.dart';
 import 'package:udemy/model/constant.dart';
@@ -234,25 +235,70 @@ class _HomeState extends State<Home> {
           height: 20,
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15),
-          child: Wrap(
-            spacing: 15,
-            runSpacing: 15,
-            children: List.generate(categoryAll.length, (index) {
-              return Container(
-                height: 120,
-                width: (size.width - 45) / 2,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    image: DecorationImage(
-                      image: NetworkImage(categoryAll[index]['imageUrl']),
-                      fit: BoxFit.cover,
-                    )),
-              );
-            }),
-          ),
-        )
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: IndexedStack(
+              index: selectedCategoryIndex,
+              children: [
+                GetCategory(items: categoryAll),
+                GetCategory(items: categoryPopular),
+                GetCategory(items: categoryNewest),
+              ],
+            ))
       ],
+    );
+  }
+}
+
+class GetCategory extends StatelessWidget {
+  final List items;
+  const GetCategory({Key? key, required this.items}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    return Wrap(
+      spacing: 15,
+      runSpacing: 15,
+      children: List.generate(items.length, (index) {
+        return Stack(children: [
+          Container(
+            height: 120,
+            width: (size.width - 45) / 2,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              image: DecorationImage(
+                image: NetworkImage(categoryAll[index]['imageUrl']),
+                fit: BoxFit.cover,
+              ),
+            ),
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: black.withOpacity(0.2),
+              ),
+            ),
+          ),
+          Positioned(
+              bottom: 8,
+              left: 8,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    items[index]['name'],
+                    style: TextStyle(color: white, fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    "${items[index]['lesson']}lesson",
+                    style: TextStyle(
+                        color: white.withOpacity(0.9),
+                        fontWeight: FontWeight.w500,
+                        fontSize: 12),
+                  )
+                ],
+              ))
+        ]);
+      }),
     );
   }
 }
