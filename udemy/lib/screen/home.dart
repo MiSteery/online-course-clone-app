@@ -239,16 +239,45 @@ class _HomeState extends State<Home> {
             spacing: 15,
             runSpacing: 15,
             children: List.generate(categoryAll.length, (index) {
-              return Container(
-                height: 120,
-                width: (size.width - 45) / 2,
-                decoration: BoxDecoration(
+              return Stack(children: [
+                Container(
+                  height: 120,
+                  width: (size.width - 45) / 2,
+                  decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     image: DecorationImage(
                       image: NetworkImage(categoryAll[index]['imageUrl']),
                       fit: BoxFit.cover,
-                    )),
-              );
+                    ),
+                  ),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: black.withOpacity(0.2),
+                    ),
+                  ),
+                ),
+                Positioned(
+                    bottom: 8,
+                    left: 8,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          categoryAll[index]['name'],
+                          style: TextStyle(
+                              color: white, fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          "${categoryAll[index]['lesson']}lesson",
+                          style: TextStyle(
+                              color: white.withOpacity(0.9),
+                              fontWeight: FontWeight.w500,
+                              fontSize: 12),
+                        )
+                      ],
+                    ))
+              ]);
             }),
           ),
         )
