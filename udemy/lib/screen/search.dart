@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:udemy/color.dart';
+import 'package:udemy/model/search.dart';
 
 class Search extends StatelessWidget {
   const Search({Key? key}) : super(key: key);
@@ -82,6 +83,41 @@ class Search extends StatelessWidget {
           ),
         ],
       ),
+      SizedBox(
+        height: 20,
+      ),
+      Container(
+          height: 80,
+          width: size.width - 30,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: white,
+              boxShadow: [
+                BoxShadow(
+                  color: hightLightGrey.withOpacity(0.5),
+                  spreadRadius: 3,
+                  blurRadius: 6,
+                  offset: Offset(0, 3),
+                )
+              ]),
+          child: Padding(
+            padding: const EdgeInsets.all(10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  height: 80,
+                  width: (size.width - 50) * 0.17,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      image: DecorationImage(
+                        image: NetworkImage(searchItems[0]['imageUrl']),
+                        fit: BoxFit.cover,
+                      )),
+                )
+              ],
+            ),
+          ))
     ]);
   }
 }
