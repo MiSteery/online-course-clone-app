@@ -1,8 +1,9 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
 import 'package:udemy/color.dart';
 import 'package:udemy/model/constant.dart';
 import 'package:udemy/model/home.dart';
