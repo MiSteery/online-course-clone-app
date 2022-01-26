@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+
 import 'package:udemy/color.dart';
 import 'package:udemy/model/constant.dart';
 import 'package:udemy/screen/account.dart';
@@ -19,7 +20,7 @@ class _RootState extends State<Root> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: white,
-      appBar: getAppBar(),
+      appBar:selectedIndex == 0 ? getAppBar() : null,
       body: getBody(),
       bottomNavigationBar: getBottomNavigationBar(),
     );
