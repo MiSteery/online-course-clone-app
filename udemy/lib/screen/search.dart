@@ -129,6 +129,16 @@ class Search extends StatelessWidget {
                           fontSize: 16,
                         ),
                       ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        "${searchItems[0]['lesson']} Lesson",
+                        style: TextStyle(
+                          color: grey,
+                          fontSize: 13,
+                        ),
+                      )
                     ],
                   ),
                 ),
