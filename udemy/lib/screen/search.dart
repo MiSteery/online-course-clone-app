@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:udemy/color.dart';
@@ -109,11 +110,34 @@ class Search extends StatelessWidget {
                   height: 80,
                   width: (size.width - 50) * 0.17,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      image: DecorationImage(
-                        image: NetworkImage(searchItems[0]['imageUrl']),
-                        fit: BoxFit.cover,
-                      )),
+                    borderRadius: BorderRadius.circular(10),
+                    image: DecorationImage(
+                      image: NetworkImage(searchItems[0]['imageUrl']),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                Container(
+                  width: (size.width - 50) * 0.66,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        searchItems[0]['name'],
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  width: (size.width - 50) * 0.1,
+                  child: Icon(
+                    Icons.arrow_forward_ios,
+                    size: 20,
+                  ),
                 )
               ],
             ),
