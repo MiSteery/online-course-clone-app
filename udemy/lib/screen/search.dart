@@ -1,6 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:udemy/color.dart';
+import 'package:udemy/model/search.dart';
 
 class Search extends StatelessWidget {
   const Search({Key? key}) : super(key: key);
@@ -82,6 +85,95 @@ class Search extends StatelessWidget {
           ),
         ],
       ),
+      SizedBox(
+        height: 20,
+      ),
+    Column(
+      children: List.generate(searchItems.length, (index) {
+        return   Padding(
+          padding: const EdgeInsets.only(bottom: 20),
+          child: Container(
+            height: 80,
+            width: size.width - 30,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: white,
+                boxShadow: [
+                  BoxShadow(
+                    color: hightLightGrey.withOpacity(0.5),
+                    spreadRadius: 3,
+                    blurRadius: 6,
+                    offset: Offset(0, 3),
+                  )
+                ]),
+            child: Padding(
+              padding: const EdgeInsets.all(10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    height: 80,
+                    width: (size.width - 50) * 0.17,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      image: DecorationImage(
+                        image: NetworkImage(searchItems[index]['imageUrl']),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    width: (size.width - 50) * 0.66,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          searchItems[index]['name'],
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          "${searchItems[index]['lesson']} Lesson",
+                          style: TextStyle(
+                            color: grey,
+                            fontSize: 13,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        RatingBarIndicator(
+                          rating: searchItems[index]['rating'],
+                          itemCount: 5,
+                          itemSize: 12.0,
+                          direction: Axis.horizontal,
+                          itemBuilder: (context, index) => Icon(
+                            Icons.star,
+                            color: secondary,
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  Container(
+                    width: (size.width - 50) * 0.1,
+                    child: Icon(
+                      Icons.arrow_forward_ios,
+                      size: 20,
+                    ),
+                  )
+                ],
+              ),
+            )
+            ),
+        );
+      }),
+    )
     ]);
   }
 }
