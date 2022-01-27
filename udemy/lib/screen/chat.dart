@@ -52,15 +52,32 @@ class Chat extends StatelessWidget {
           height: 20,
         ),
         Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15),
-            child: Container(
-              height: 45,
-              width: Size.width - 30,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                border: Border.all(width: 1, color: grey),
+          padding: const EdgeInsets.symmetric(horizontal: 15),
+          child: Container(
+            height: 45,
+            width: Size.width - 30,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              border: Border.all(width: 1, color: grey),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 3),
+              child: TextField(
+                cursorColor: black.withOpacity(0.5),
+                decoration: InputDecoration(
+                  border: InputBorder.none,
+                  prefixIcon: Icon(
+                    Icons.search,
+                    color: black.withOpacity(0.5),
+                  ),
+                  hintText: 'Search...',
+                  hintStyle: TextStyle(color: black.withOpacity(0.5)),
+                  suffixIcon: Icon(Icons.mic, color: black.withOpacity(0.5)),
+                ),
               ),
-            )),
+            ),
+          ),
+        ),
       ],
     );
   }
