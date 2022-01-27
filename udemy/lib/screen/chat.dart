@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:udemy/model/chat.dart';
 
 import '../color.dart';
 
@@ -45,7 +46,7 @@ class Chat extends StatelessWidget {
     );
   }
 
-  Widget getBody(Size) {
+  Widget getBody(size) {
     return ListView(
       children: [
         SizedBox(
@@ -55,7 +56,7 @@ class Chat extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 15),
           child: Container(
             height: 45,
-            width: Size.width - 30,
+            width: size.width - 30,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               border: Border.all(width: 1, color: grey),
@@ -78,6 +79,25 @@ class Chat extends StatelessWidget {
             ),
           ),
         ),
+        SizedBox(height: 20),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+          child: Row(
+            children: [
+              Container(
+                height: 55,
+                width: (size.width - 30) * 0.14,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    image: DecorationImage(
+                        image: NetworkImage(chats[0]['imageUrl']),
+                        fit: BoxFit.cover,
+                        ),
+                        ),
+              ),
+            ],
+          ),
+        )
       ],
     );
   }
