@@ -84,33 +84,46 @@ class Chat extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
           child: Row(
             children: [
-              Stack(
-                clipBehavior: Clip.none,
-                children:[ Container(
+              Stack(clipBehavior: Clip.none, children: [
+                Container(
                   height: 55,
                   width: (size.width - 30) * 0.14,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      image: DecorationImage(
-                          image: NetworkImage(chats[0]['imageUrl']),
-                          fit: BoxFit.cover,
-                          ),
-                          ),
+                    borderRadius: BorderRadius.circular(15),
+                    image: DecorationImage(
+                      image: NetworkImage(chats[0]['imageUrl']),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                 ),
                 Positioned(
                   top: -4,
                   right: -4,
-                  child:Container(
+                  child: Container(
                     height: 16,
                     width: 16,
                     decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      border: Border.all(width:1.5,color: white),
-                      color: Colors.green
-                    ),
-                  ) )
-                ]
-              ),
+                        shape: BoxShape.circle,
+                        border: Border.all(width: 1.5, color: white),
+                        color: Colors.green),
+                  ),
+                )
+              ]),
+              Spacer(),
+              Container(
+                height: 55,
+                width: (size.width - 30) * 0.7,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      chats[0]['name'],
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    )
+                  ],
+                ),
+              )
             ],
           ),
         )
