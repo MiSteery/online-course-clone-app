@@ -242,7 +242,11 @@ class _ChatDetailState extends State<ChatDetail> {
 
 
 class ChatBubble extends StatelessWidget {
-  const ChatBubble({ Key? key }) : super(key: key);
+  final bool ? isMe, isSeen;
+  final String ?imageUrl, message, dateTime;
+  final int ? messageNo;
+
+  const ChatBubble({ Key? key, this.isMe, this.isSeen, this.imageUrl, this.message, this.dateTime, this.messageNo }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
