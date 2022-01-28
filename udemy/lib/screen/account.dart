@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 import 'package:udemy/color.dart';
 import 'package:udemy/model/account.dart';
 import 'package:udemy/model/constant.dart';
@@ -103,57 +104,63 @@ class Account extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Wrap(
-              spacing: 15,
-              children:List.generate(userAchieves.length, (index) {
-                return     Container(
-                  height: 60,
-                  width: (size.width - 61) / 3,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      color: primary,
-                      boxShadow: [
-                        BoxShadow(
-                          color: primary.withOpacity(0.5),
-                          blurRadius: 5,
-                          offset: Offset(0, 5),
-                        )
-                      ]),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Icon(
-                        userAchieves[index]['icon'],
-                        color: white,
-                        size: 25,
-                      ),
-                      Text(
-                        userAchieves[index]['title'],
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
+                spacing: 15,
+                children: List.generate(userAchieves.length, (index) {
+                  return Container(
+                    height: 60,
+                    width: (size.width - 61) / 3,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        color: primary,
+                        boxShadow: [
+                          BoxShadow(
+                            color: primary.withOpacity(0.5),
+                            blurRadius: 5,
+                            offset: Offset(0, 5),
+                          )
+                        ]),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Icon(
+                          userAchieves[index]['icon'],
                           color: white,
+                          size: 25,
                         ),
-                      )
-                    ],
-                  ),
-                );
-              })
-            ),
+                        Text(
+                          userAchieves[index]['title'],
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                            color: white,
+                          ),
+                        )
+                      ],
+                    ),
+                  );
+                })),
           ),
-        SizedBox(
+          SizedBox(
             height: 20,
           ),
           ListTile(
-          leading: Container(
-            height: 45,
-            width: 45,
-            decoration: BoxDecoration(
-              borderRadius:BorderRadius.circular(10),
-              color: primary
-            ),
-            child: Icon(settings[0]['icon'], color: white,),
-          ),
-          )
+              leading: Container(
+                height: 45,
+                width: 45,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10), color: primary),
+                child: Icon(
+                  settings[0]['icon'],
+                  color: white,
+                ),
+              ),
+              title: Text(
+                settings[0]['name'],
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ))
         ],
       ),
     );
