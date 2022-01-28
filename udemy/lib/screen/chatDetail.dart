@@ -162,7 +162,7 @@ children:[
             child: Row(
               children: [
                 Container(
-                  width: (size.width -40)*0.1,
+                  width: (size.width -30)*0.1,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: grey.withOpacity(0.1),
@@ -171,7 +171,7 @@ children:[
                 ),
                 Spacer(),
                 Container(
-                  width: (size.width -40) * 0.56,
+                  width: (size.width -30) * 0.56,
                   child: TextField(
                     cursorColor: black.withOpacity(0.5),
                     decoration: InputDecoration(
