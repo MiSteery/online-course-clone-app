@@ -67,6 +67,16 @@ class Account extends StatelessWidget {
               fontSize: 16,
               fontWeight: FontWeight.bold,
             ),
+          ),
+           SizedBox(
+            height: 3,
+          ),
+          Text(
+            position,
+            style: TextStyle(
+              fontSize: 12,
+             color: grey,
+            ),
           )
         ],
       ),
