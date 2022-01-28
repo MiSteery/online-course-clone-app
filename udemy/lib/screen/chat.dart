@@ -126,9 +126,21 @@ class Chat extends StatelessWidget {
                       chats[0]['message'],
                       style: TextStyle(fontSize: 12, color: grey),
                     ),
-
                   ],
                 ),
+              ),
+              Spacer(),
+              Container(
+                height:55,
+                width: (size.width - 30) * 0.1,
+                child:Column(
+                  children: [
+                    Text(
+                      chats[0]['time'],
+                      style: TextStyle(fontSize: 12, color: grey),
+                    ),
+                  ],
+                ) ,
               )
             ],
           ),
