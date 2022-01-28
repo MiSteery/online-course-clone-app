@@ -9,7 +9,7 @@ class Account extends StatelessWidget {
     return Scaffold(
       backgroundColor: white,
       appBar: getAppBar(),
-      body: Text('account'),
+      body: getBody(),
     );
   }
 
@@ -23,8 +23,13 @@ class Account extends StatelessWidget {
         style: TextStyle(color: black),
       ),
       actions: [
-        IconButton(onPressed: () {}, icon: Icon(Icons.more_vert, color: black))
+        IconButton(onPressed: () {}, icon: Icon(Icons.more_vert, color: black),
+        )
       ],
     );
+  }
+
+  Widget getBody(){
+    return SingleChildScrollView(child: Column(),);
   }
 }
