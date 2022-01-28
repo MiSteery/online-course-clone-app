@@ -17,7 +17,6 @@ class _ChatDetailState extends State<ChatDetail> {
       backgroundColor: white,
       appBar: getAppBar(),
       body: getBody(size),
-
     );
   }
 
@@ -102,26 +101,26 @@ class _ChatDetailState extends State<ChatDetail> {
               Row(
                 children: [
                   IconButton(
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.videocam,
-                        color: grey,
-                      ),
-                      ),
-                      IconButton(
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.phone_in_talk,
-                        color: grey,
-                      ),
-                      ),
-                      IconButton(
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.more_vert,
-                        color: grey,
-                      ),
-                      ),
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.videocam,
+                      color: grey,
+                    ),
+                  ),
+                  IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.phone_in_talk,
+                      color: grey,
+                    ),
+                  ),
+                  IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.more_vert,
+                      color: grey,
+                    ),
+                  ),
                 ],
               )
             ],
@@ -131,80 +130,98 @@ class _ChatDetailState extends State<ChatDetail> {
     );
   }
 
-Widget getBody(size){
-  return Column(
-children:[
-  Spacer(),
-  Container(
- 
-    padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-    decoration: BoxDecoration(
-      color: white,
-      boxShadow: [
-        BoxShadow(
-          color: hightLightGrey.withOpacity(0.08),
-          blurRadius: 32,
-          offset: Offset(0, 4),
-        )
-      ]
-    ),
-    child: SafeArea(
-      child: Row(
+  Widget getBody(size) {
+    return Column(children: [
+      Expanded(
+          child: ListView(
         children: [
-          Container(
-            height: 50,
-            width: (size.width -30)*0.82,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              border: Border.all(width: 1, color: grey),
-              color: white,
-            ),
-            child: Row(
-              children: [
-                Container(
-                  width: (size.width -30)*0.1,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: grey.withOpacity(0.1),
-                  ),
-                  child: Icon(Icons.add, color: primary,),
-                ),
-                Spacer(),
-                Container(
-                  width: (size.width -30) * 0.56,
-                  child: TextField(
-                    cursorColor: black.withOpacity(0.5),
-                    decoration: InputDecoration(
-                      border:InputBorder.none,
-                      hintText: 'Message...',
-                      hintStyle: TextStyle(color: black.withOpacity(0.5),)
-                    ),
-                  ),
-                ),
-                Spacer(),
-                Container(
-                  width: (size.width - 40) * 0.1,
-                  alignment: Alignment.center,
-                  child: Text("😎", style: TextStyle(fontSize: 20),),
-                )
-              ],
-            ),
+          SizedBox(
+            height: 20,
           ),
-          Spacer(),
-          Container(
-            height: 50,
-            width:(size.width - 30) * 0.13,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              color:primary,
+          Center(
+            child: Text(
+              'Today',
+              style: TextStyle(color: grey, fontSize: 13),
             ),
-            child: Icon(Icons.send, color: white, size: 30,),
           )
         ],
-      ),
-    ),
-  )
-]
-  );
-}
+      )),
+      Container(
+        padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+        decoration: BoxDecoration(color: white, boxShadow: [
+          BoxShadow(
+            color: hightLightGrey.withOpacity(0.08),
+            blurRadius: 32,
+            offset: Offset(0, 4),
+          )
+        ]),
+        child: SafeArea(
+          child: Row(
+            children: [
+              Container(
+                height: 50,
+                width: (size.width - 30) * 0.82,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(width: 1, color: grey),
+                  color: white,
+                ),
+                child: Row(
+                  children: [
+                    Container(
+                      width: (size.width - 30) * 0.1,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: grey.withOpacity(0.1),
+                      ),
+                      child: Icon(
+                        Icons.add,
+                        color: primary,
+                      ),
+                    ),
+                    Spacer(),
+                    Container(
+                      width: (size.width - 30) * 0.56,
+                      child: TextField(
+                        cursorColor: black.withOpacity(0.5),
+                        decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: 'Message...',
+                            hintStyle: TextStyle(
+                              color: black.withOpacity(0.5),
+                            )),
+                      ),
+                    ),
+                    Spacer(),
+                    Container(
+                      width: (size.width - 40) * 0.1,
+                      alignment: Alignment.center,
+                      child: Text(
+                        "😎",
+                        style: TextStyle(fontSize: 20),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              Spacer(),
+              Container(
+                height: 50,
+                width: (size.width - 30) * 0.13,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: primary,
+                ),
+                child: Icon(
+                  Icons.send,
+                  color: white,
+                  size: 30,
+                ),
+              )
+            ],
+          ),
+        ),
+      )
+    ]);
+  }
 }
