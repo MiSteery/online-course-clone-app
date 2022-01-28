@@ -13,13 +13,18 @@ class Account extends StatelessWidget {
     );
   }
 
-  AppBar getAppBar(){
+  AppBar getAppBar() {
     return AppBar(
       centerTitle: true,
-        backgroundColor: white,
-        elevation: 0,
-        title:Text('Profile', style: TextStyle(color: black),
-       )
-      );
+      backgroundColor: white,
+      elevation: 0,
+      title: Text(
+        'Profile',
+        style: TextStyle(color: black),
+      ),
+      actions: [
+        IconButton(onPressed: () {}, icon: Icon(Icons.more_vert, color: black))
+      ],
+    );
   }
 }
