@@ -36,53 +36,63 @@ class Account extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
-          SizedBox(height: 60,),
+          SizedBox(
+            height: 60,
+          ),
           Center(
-            child: Column(children: [
-              Stack(clipBehavior: Clip.none, children: [
+            child: Column(
+              children: [
+              Stack(
+                clipBehavior: Clip.none,
+                 children: [
                 Container(
                   height: 95,
                   width: 95,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
                       image: DecorationImage(
-                          image: NetworkImage(profileUrl), fit: BoxFit.cover)),
+                          image: NetworkImage(profileUrl), fit: BoxFit.cover,
+                          ),
+                          ),
                 ),
                 Positioned(
-                    bottom: -4,
-                    right: -4,
-                    child: Container(
-                      height: 26,
-                      width: 26,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: primary,
-                      ),
-                      child: Icon(Icons.edit_outlined, color: white, size: 16),
-                    ))
-              ]),
-            ]),
+                  bottom: -4,
+                  right: -4,
+                  child: Container(
+                    height: 26,
+                    width: 26,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: primary,
+                    ),
+                    child: Icon(Icons.edit_outlined, color: white, size: 16),
+                  ),
+                ),
+                 ],
+              ),
+                SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  username,
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(
+                  height: 3,
+                ),
+                Text(
+                  position,
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: grey,
+                  ),
+                )
+              ],
+              ),                
           ),
-          SizedBox(
-            height: 10,
-          ),
-          Text(
-            username,
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          SizedBox(
-            height: 3,
-          ),
-          Text(
-            position,
-            style: TextStyle(
-              fontSize: 12,
-              color: grey,
-            ),
-          )
         ],
       ),
     );
