@@ -22,6 +22,7 @@ class _ChatDetailState extends State<ChatDetail> {
     return AppBar(
       backgroundColor: white,
       elevation: 0,
+      automaticallyImplyLeading: false,
       flexibleSpace: SafeArea(
         child:
           Padding(
@@ -34,7 +35,8 @@ class _ChatDetailState extends State<ChatDetail> {
                       icon: Icon(
                         Icons.arrow_back,
                         color: black,
-                      )),
+                      ),
+                      ),
                   ]
                 )
               ],
