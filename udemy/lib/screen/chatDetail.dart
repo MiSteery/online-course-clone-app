@@ -41,18 +41,20 @@ class _ChatDetailState extends State<ChatDetail> {
                 SizedBox(
                   width: 5,
                 ),
-                Stack(clipBehavior: Clip.none, children: [
-                  Container(
-                    height: 40,
-                    width: 40,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        image: DecorationImage(
-                          image: NetworkImage(chats[0]['imageUrl']),
-                          fit: BoxFit.cover,
-                        )),
-                  ),
-                  Positioned(
+                Stack(
+                  clipBehavior: Clip.none,
+                  children: [
+                    Container(
+                      height: 40,
+                      width: 40,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          image: DecorationImage(
+                            image: NetworkImage(chats[0]['imageUrl']),
+                            fit: BoxFit.cover,
+                          )),
+                    ),
+                    Positioned(
                       top: -4,
                       right: -4,
                       child: Container(
@@ -62,8 +64,23 @@ class _ChatDetailState extends State<ChatDetail> {
                             shape: BoxShape.circle,
                             color: Colors.green,
                             border: Border.all(width: 1.5, color: white)),
-                      ))
-                ])
+                      ),
+                    )
+                  ],
+                ),
+                SizedBox(
+                  width: 15,
+                ),
+                Column(
+                  children: [
+                    Text(
+                      chats[0]['name'],
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    )
+                  ],
+                )
               ])
             ],
           ),
