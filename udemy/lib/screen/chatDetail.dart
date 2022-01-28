@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:udemy/color.dart';
 
-class ChatDetail extends StatelessWidget {
-  const ChatDetail({ Key? key }) : super(key: key);
+class ChatDetail extends StatefulWidget {
+  const ChatDetail({Key? key}) : super(key: key);
 
+  @override
+  _ChatDetailState createState() => _ChatDetailState();
+}
+
+class _ChatDetailState extends State<ChatDetail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,7 +18,27 @@ class ChatDetail extends StatelessWidget {
     );
   }
 
-  AppBar getAppBar(){
-    return AppBar();
+  AppBar getAppBar() {
+    return AppBar(
+      backgroundColor: white,
+      elevation: 0,
+      flexibleSpace: SafeArea(
+        child: Row(children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Row(
+              children: [
+                IconButton(
+                    onPressed: () => Navigator.pop(context),
+                    icon: Icon(
+                      Icons.arrow_back,
+                      color: black,
+                    ))
+              ],
+            ),
+          ),
+        ]),
+      ),
+    );
   }
 }
