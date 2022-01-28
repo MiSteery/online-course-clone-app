@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:udemy/color.dart';
 import 'package:udemy/model/chat.dart';
+import 'package:udemy/model/chatDetail.dart';
 
 class ChatDetail extends StatefulWidget {
   const ChatDetail({Key? key}) : super(key: key);
@@ -149,18 +150,38 @@ class _ChatDetailState extends State<ChatDetail> {
           ),
           Column(
             children: [
-              Row(
-                children:[ Container(
-                    height: 33,
-                    width: 33,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        image: DecorationImage(
-                          image: NetworkImage(chats[0]['imageUrl']),
-                          fit: BoxFit.cover,
-                        ))),
-                ]
-              )
+              Row(children: [
+                Container(
+                  height: 33,
+                  width: 33,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    image: DecorationImage(
+                      image: NetworkImage(chats[0]['imageUrl']),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Column(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: grey.withOpacity(0.2)),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8),
+                        child: Text(
+                          chatDetails[0]['message'],
+                          style: TextStyle(fontSize: 15),
+                        ),
+                      ),
+                    )
+                  ],
+                )
+              ])
             ],
           )
         ],
