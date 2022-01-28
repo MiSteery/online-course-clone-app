@@ -1,20 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:udemy/model/chat.dart';
-import 'package:udemy/model/chatDetail.dart';
-import 'package:udemy/screen/chatDetail.dart';
 
+import 'package:udemy/model/chat.dart';
+import 'package:udemy/screen/chatDetail.dart';
 import '../color.dart';
 
-class Chat extends StatelessWidget {
+class Chat extends StatefulWidget {
   const Chat({Key? key}) : super(key: key);
 
+  @override
+  _ChatState createState() => _ChatState();
+}
+
+class _ChatState extends State<Chat> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: white,
       appBar: getAppBar(),
-      body: getBody(size, context),
+      body: getBody(size),
     );
   }
 
@@ -48,7 +52,7 @@ class Chat extends StatelessWidget {
     );
   }
 
-  Widget getBody(size, context) {
+  Widget getBody(size) {
     return ListView(
       children: [
         SizedBox(
