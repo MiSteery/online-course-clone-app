@@ -81,93 +81,96 @@ class Chat extends StatelessWidget {
         SizedBox(height: 20),
         Column(
             children: List.generate(chats.length, (index) {
-          return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-            child: Row(
-              children: [
-                Stack(clipBehavior: Clip.none, children: [
+          return InkWell(
+            onTap: (){},
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+              child: Row(
+                children: [
+                  Stack(clipBehavior: Clip.none, children: [
+                    Container(
+                      height: 55,
+                      width: (size.width - 30) * 0.14,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        image: DecorationImage(
+                          image: NetworkImage(chats[index]['imageUrl']),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      top: -4,
+                      right: -4,
+                      child: Container(
+                        height: 16,
+                        width: 16,
+                        decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(width: 1.5, color: white),
+                            color:chats[index]['active'] ==1 ? Colors.green :lightGrey,
+                            ),
+                      ),
+                    )
+                  ]),
+                  Spacer(),
                   Container(
                     height: 55,
-                    width: (size.width - 30) * 0.14,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      image: DecorationImage(
-                        image: NetworkImage(chats[index]['imageUrl']),
-                        fit: BoxFit.cover,
-                      ),
+                    width: (size.width - 30) * 0.7,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          chats[index]['name'],
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          chats[index]['message'],
+                          style: TextStyle(fontSize: 12, color: grey),
+                        ),
+                      ],
                     ),
                   ),
-                  Positioned(
-                    top: -4,
-                    right: -4,
-                    child: Container(
-                      height: 16,
-                      width: 16,
-                      decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(width: 1.5, color: white),
-                          color:chats[index]['active'] ==1 ? Colors.green :lightGrey,
-                          ),
-                    ),
-                  )
-                ]),
-                Spacer(),
-                Container(
-                  height: 55,
-                  width: (size.width - 30) * 0.7,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        chats[index]['name'],
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Text(
-                        chats[index]['message'],
-                        style: TextStyle(fontSize: 12, color: grey),
-                      ),
-                    ],
-                  ),
-                ),
-                Spacer(),
-                Container(
-                  height: 55,
-                  width: (size.width - 30) * 0.1,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        chats[index]['time'],
-                        style: TextStyle(fontSize: 12, color: grey),
-                      ),
-                      SizedBox(height: 3),
-                      chats[index]['unread'] != 0 ? 
-                      Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            color: primary),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 4, vertical: 3),
-                          child: Text(
-                            chats[0]['unread'].toString(),
-                            style: TextStyle(
-                              fontSize: 11,
-                              color: white,
+                  Spacer(),
+                  Container(
+                    height: 55,
+                    width: (size.width - 30) * 0.1,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          chats[index]['time'],
+                          style: TextStyle(fontSize: 12, color: grey),
+                        ),
+                        SizedBox(height: 3),
+                        chats[index]['unread'] != 0 ? 
+                        Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                              color: primary),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 4, vertical: 3),
+                            child: Text(
+                              chats[0]['unread'].toString(),
+                              style: TextStyle(
+                                fontSize: 11,
+                                color: white,
+                              ),
                             ),
                           ),
-                        ),
-                      )
-                      :Icon(Icons.more_horiz, size:  20 ,)
-                    ],
-                  ),
-                )
-              ],
+                        )
+                        :Icon(Icons.more_horiz, size:  20 ,)
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ),
           );
         }))
