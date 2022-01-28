@@ -4,6 +4,7 @@ import 'package:line_icons/line_icons.dart';
 import 'package:udemy/color.dart';
 import 'package:udemy/model/chat.dart';
 import 'package:udemy/model/chatDetail.dart';
+import 'package:udemy/model/constant.dart';
 
 class ChatDetail extends StatefulWidget {
   const ChatDetail({Key? key}) : super(key: key);
@@ -272,7 +273,7 @@ class ChatBubble extends StatelessWidget {
             children: [
               Container(
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: getBorderRadiusMessage(messageNo, isMe),
                     color: grey.withOpacity(0.2)),
                 child: Padding(
                   padding: const EdgeInsets.all(8),
@@ -334,7 +335,7 @@ class ChatBubble extends StatelessWidget {
             children: [
               Container(
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius:getBorderRadiusMessage(messageNo, isMe),
                     color: grey.withOpacity(0.2)),
                 child: Padding(
                   padding: const EdgeInsets.all(8),
