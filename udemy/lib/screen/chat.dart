@@ -124,7 +124,7 @@ class Chat extends StatelessWidget {
                     SizedBox(height: 5,),
                     Text(
                       chats[0]['message'],
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style: TextStyle(fontSize: 12, color: grey),
                     ),
 
                   ],
