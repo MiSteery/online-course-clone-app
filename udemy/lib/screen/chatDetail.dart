@@ -152,60 +152,7 @@ class _ChatDetailState extends State<ChatDetail> {
           ),
           Column(
             children: [
-              Row(children: [
-                Container(
-                  height: 33,
-                  width: 33,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    image: DecorationImage(
-                      image: NetworkImage(chats[0]['imageUrl']),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: grey.withOpacity(0.2)),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8),
-                        child: Text(
-                          chatDetails[0]['message'],
-                          style: TextStyle(fontSize: 15),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                        padding: const EdgeInsets.only(top: 5),
-                        child: Row(
-                          children: [
-                            Icon(
-                              LineIcons.doubleCheck,
-                              size: 14,
-                              color: grey,
-                            ),
-                            SizedBox(
-                              width: 3,
-                            ),
-                            Text(
-                              chatDetails[0]['dateTime'],
-                              style: TextStyle(
-                                fontSize: 11,
-                                color: grey,
-                              ),
-                            )
-                          ],
-                        ))
-                  ],
-                )
-              ])
+            ChatBubble()
             ],
           )
         ],
@@ -287,5 +234,68 @@ class _ChatDetailState extends State<ChatDetail> {
         ),
       )
     ]);
+  }
+}
+
+
+class ChatBubble extends StatelessWidget {
+  const ChatBubble({ Key? key }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return   Row(children: [
+                Container(
+                  height: 33,
+                  width: 33,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    image: DecorationImage(
+                      image: NetworkImage(chats[0]['imageUrl']),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: grey.withOpacity(0.2)),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8),
+                        child: Text(
+                          chatDetails[0]['message'],
+                          style: TextStyle(fontSize: 15),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                        padding: const EdgeInsets.only(top: 5),
+                        child: Row(
+                          children: [
+                            Icon(
+                              LineIcons.doubleCheck,
+                              size: 14,
+                              color: grey,
+                            ),
+                            SizedBox(
+                              width: 3,
+                            ),
+                            Text(
+                              chatDetails[0]['dateTime'],
+                              style: TextStyle(
+                                fontSize: 11,
+                                color: grey,
+                              ),
+                            )
+                          ],
+                        ))
+                  ],
+                )
+              ]);
   }
 }
