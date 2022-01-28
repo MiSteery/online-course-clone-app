@@ -189,6 +189,16 @@ children:[
                 )
               ],
             ),
+          ),
+          Spacer(),
+          Container(
+            height: 50,
+            width:(size.width - 30) * 0.13,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color:primary,
+            ),
+            child: Icon(Icons.send, color: white, size: 30,),
           )
         ],
       ),
