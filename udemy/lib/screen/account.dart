@@ -58,6 +58,16 @@ class Account extends StatelessWidget {
                   child: Icon(Icons.edit_outlined, color: white, size: 16),
                 ))
           ]),
+          SizedBox(
+            height: 10,
+          ),
+          Text(
+            username,
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
+          )
         ],
       ),
     );
