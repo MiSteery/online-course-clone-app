@@ -139,6 +139,20 @@ class Account extends StatelessWidget {
                 );
               })
             ),
+          ),
+        SizedBox(
+            height: 20,
+          ),
+          ListTile(
+          leading: Container(
+            height: 45,
+            width: 45,
+            decoration: BoxDecoration(
+              borderRadius:BorderRadius.circular(10),
+              color: primary
+            ),
+            child: Icon(settings[0]['icon'], color: white,),
+          ),
           )
         ],
       ),
