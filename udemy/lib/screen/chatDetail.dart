@@ -113,6 +113,13 @@ class _ChatDetailState extends State<ChatDetail> {
                         color: grey,
                       ),
                       ),
+                      IconButton(
+                      onPressed: () {},
+                      icon: Icon(
+                        Icons.more_vert,
+                        color: grey,
+                      ),
+                      ),
                 ],
               )
             ],
