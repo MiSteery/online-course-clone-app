@@ -28,70 +28,85 @@ class _ChatDetailState extends State<ChatDetail> {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Row(children: [
-                IconButton(
-                  splashRadius: 25,
-                  onPressed: () => Navigator.pop(context),
-                  icon: Icon(
-                    Icons.arrow_back,
-                    color: black,
+              Row(
+                children: [
+                  IconButton(
+                    splashRadius: 25,
+                    onPressed: () => Navigator.pop(context),
+                    icon: Icon(
+                      Icons.arrow_back,
+                      color: black,
+                    ),
                   ),
-                ),
-                SizedBox(
-                  width: 5,
-                ),
-                Stack(
-                  clipBehavior: Clip.none,
-                  children: [
-                    Container(
-                      height: 40,
-                      width: 40,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          image: DecorationImage(
-                            image: NetworkImage(chats[0]['imageUrl']),
-                            fit: BoxFit.cover,
-                          )),
-                    ),
-                    Positioned(
-                      top: -4,
-                      right: -4,
-                      child: Container(
-                        height: 13,
-                        width: 13,
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Stack(
+                    clipBehavior: Clip.none,
+                    children: [
+                      Container(
+                        height: 40,
+                        width: 40,
                         decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Colors.green,
-                            border: Border.all(width: 1.5, color: white)),
+                            borderRadius: BorderRadius.circular(10),
+                            image: DecorationImage(
+                              image: NetworkImage(chats[0]['imageUrl']),
+                              fit: BoxFit.cover,
+                            )),
                       ),
-                    )
-                  ],
-                ),
-                SizedBox(
-                  width: 15,
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      chats[0]['name'],
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                      Positioned(
+                        top: -4,
+                        right: -4,
+                        child: Container(
+                          height: 13,
+                          width: 13,
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.green,
+                              border: Border.all(width: 1.5, color: white)),
+                        ),
+                      )
+                    ],
+                  ),
+                  SizedBox(
+                    width: 15,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        chats[0]['name'],
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 3,),
-                     Text(
-                     'online',
-                      style: TextStyle(
-                       fontSize: 11,
-                       color: grey,
+                      SizedBox(
+                        height: 3,
                       ),
-                    )
-                  ],
-                )
-              ])
+                      Text(
+                        'online',
+                        style: TextStyle(
+                          fontSize: 11,
+                          color: grey,
+                        ),
+                      )
+                    ],
+                  )
+                ],
+              ),
+              Row(
+                children: [
+                  IconButton(
+                      onPressed: () {},
+                      icon: Icon(
+                        Icons.videocam,
+                        color: grey,
+                      ))
+                ],
+              )
             ],
           ),
         ),
