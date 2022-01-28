@@ -121,7 +121,9 @@ class Chat extends StatelessWidget {
                       chats[0]['name'],
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(height: 5,),
+                    SizedBox(
+                      height: 5,
+                    ),
                     Text(
                       chats[0]['message'],
                       style: TextStyle(fontSize: 12, color: grey),
@@ -131,16 +133,33 @@ class Chat extends StatelessWidget {
               ),
               Spacer(),
               Container(
-                height:55,
+                height: 55,
                 width: (size.width - 30) * 0.1,
-                child:Column(
+                child: Column(
                   children: [
                     Text(
                       chats[0]['time'],
                       style: TextStyle(fontSize: 12, color: grey),
                     ),
+                    SizedBox(height: 3),
+                    Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          color: primary),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 4, vertical: 3),
+                        child: Text(
+                          chats[0]['unread'].toString(),
+                          style: TextStyle(
+                            fontSize: 11,
+                            color: white,
+                          ),
+                        ),
+                      ),
+                    )
                   ],
-                ) ,
+                ),
               )
             ],
           ),
