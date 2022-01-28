@@ -12,10 +12,11 @@ class ChatDetail extends StatefulWidget {
 class _ChatDetailState extends State<ChatDetail> {
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: white,
       appBar: getAppBar(),
-      body: getBody(),
+      body: getBody(size),
 
     );
   }
@@ -130,9 +131,40 @@ class _ChatDetailState extends State<ChatDetail> {
     );
   }
 
-Widget getBody(){
+Widget getBody(size){
   return Column(
-
+children:[
+  Spacer(),
+  Container(
+ 
+    padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+    decoration: BoxDecoration(
+      color: white,
+      boxShadow: [
+        BoxShadow(
+          color: hightLightGrey.withOpacity(0.08),
+          blurRadius: 32,
+          offset: Offset(0, 4),
+        )
+      ]
+    ),
+    child: SafeArea(
+      child: Row(
+        children: [
+          Container(
+            height: 50,
+            width: (size.width -30)*0.82,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              border: Border.all(width: 1, color: grey),
+              color: white,
+            ),
+          )
+        ],
+      ),
+    ),
+  )
+]
   );
 }
 }
