@@ -36,14 +36,28 @@ class Account extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
-          Container(
-            height: 95,
-            width: 95,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                image: DecorationImage(
-                    image: NetworkImage(profileUrl), fit: BoxFit.cover)),
-          )
+          Stack(clipBehavior: Clip.none, children: [
+            Container(
+              height: 95,
+              width: 95,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  image: DecorationImage(
+                      image: NetworkImage(profileUrl), fit: BoxFit.cover)),
+            ),
+            Positioned(
+                bottom: -4,
+                right: -4,
+                child: Container(
+                  height: 26,
+                  width: 26,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: primary,
+                  ),
+                  child: Icon(Icons.edit_outlined, color: white, size: 16),
+                ))
+          ]),
         ],
       ),
     );
