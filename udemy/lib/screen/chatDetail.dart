@@ -168,6 +168,18 @@ children:[
                     color: grey.withOpacity(0.1),
                   ),
                   child: Icon(Icons.add, color: primary,),
+                ),
+                Spacer(),
+                Container(
+                  width: (size.width -40) * 0.56,
+                  child: TextField(
+                    cursorColor: black.withOpacity(0.5),
+                    decoration: InputDecoration(
+                      border:InputBorder.none,
+                      hintText: 'Message...',
+                      hintStyle: TextStyle(color: black.withOpacity(0.5),)
+                    ),
+                  ),
                 )
               ],
             ),
