@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:line_icons/line_icon.dart';
+import 'package:line_icons/line_icons.dart';
 import 'package:udemy/color.dart';
 import 'package:udemy/model/chat.dart';
 import 'package:udemy/model/chatDetail.dart';
@@ -166,6 +168,7 @@ class _ChatDetailState extends State<ChatDetail> {
                   width: 10,
                 ),
                 Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
                       decoration: BoxDecoration(
@@ -178,7 +181,28 @@ class _ChatDetailState extends State<ChatDetail> {
                           style: TextStyle(fontSize: 15),
                         ),
                       ),
-                    )
+                    ),
+                    Padding(
+                        padding: const EdgeInsets.only(top: 5),
+                        child: Row(
+                          children: [
+                            Icon(
+                              LineIcons.doubleCheck,
+                              size: 14,
+                              color: grey,
+                            ),
+                            SizedBox(
+                              width: 3,
+                            ),
+                            Text(
+                              chatDetails[0]['dateTime'],
+                              style: TextStyle(
+                                fontSize: 11,
+                                color: grey,
+                              ),
+                            )
+                          ],
+                        ))
                   ],
                 )
               ])
