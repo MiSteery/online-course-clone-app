@@ -41,16 +41,29 @@ class _ChatDetailState extends State<ChatDetail> {
                 SizedBox(
                   width: 5,
                 ),
-                Container(
-                  height: 40,
-                  width: 40,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      image: DecorationImage(
+                Stack(clipBehavior: Clip.none, children: [
+                  Container(
+                    height: 40,
+                    width: 40,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        image: DecorationImage(
                           image: NetworkImage(chats[0]['imageUrl']),
                           fit: BoxFit.cover,
-                          )),
-                )
+                        )),
+                  ),
+                  Positioned(
+                      top: -4,
+                      right: -4,
+                      child: Container(
+                        height: 13,
+                        width: 13,
+                        decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.green,
+                            border: Border.all(width: 1.5, color: white)),
+                      ))
+                ])
               ])
             ],
           ),
