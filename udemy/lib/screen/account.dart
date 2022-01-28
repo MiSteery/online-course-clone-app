@@ -104,8 +104,8 @@ class Account extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Wrap(
               spacing: 15,
-              children: [
-                Container(
+              children:List.generate(userAchieves.length, (index) {
+                return     Container(
                   height: 60,
                   width: (size.width - 61) / 3,
                   decoration: BoxDecoration(
@@ -119,14 +119,15 @@ class Account extends StatelessWidget {
                         )
                       ]),
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Icon(
-                        userAchieves[0]['icon'],
+                        userAchieves[index]['icon'],
                         color: white,
                         size: 25,
                       ),
                       Text(
-                        userAchieves[0]['title'],
+                        userAchieves[index]['title'],
                         style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w500,
@@ -135,8 +136,8 @@ class Account extends StatelessWidget {
                       )
                     ],
                   ),
-                )
-              ],
+                );
+              })
             ),
           )
         ],
