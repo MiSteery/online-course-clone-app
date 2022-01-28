@@ -180,6 +180,12 @@ children:[
                       hintStyle: TextStyle(color: black.withOpacity(0.5),)
                     ),
                   ),
+                ),
+                Spacer(),
+                Container(
+                  width: (size.width - 40) * 0.1,
+                  alignment: Alignment.center,
+                  child: Text("😎", style: TextStyle(fontSize: 20),),
                 )
               ],
             ),
