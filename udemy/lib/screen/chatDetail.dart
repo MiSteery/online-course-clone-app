@@ -23,21 +23,24 @@ class _ChatDetailState extends State<ChatDetail> {
       backgroundColor: white,
       elevation: 0,
       flexibleSpace: SafeArea(
-        child: Row(children: [
+        child:
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Row(
               children: [
-                IconButton(
-                    onPressed: () => Navigator.pop(context),
-                    icon: Icon(
-                      Icons.arrow_back,
-                      color: black,
-                    ))
+                Row(
+                  children: [IconButton(
+                      onPressed: () => Navigator.pop(context),
+                      icon: Icon(
+                        Icons.arrow_back,
+                        color: black,
+                      )),
+                  ]
+                )
               ],
             ),
           ),
-        ]),
+        
       ),
     );
   }
