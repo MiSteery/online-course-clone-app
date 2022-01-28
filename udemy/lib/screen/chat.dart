@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:udemy/model/chat.dart';
+import 'package:udemy/model/chatDetail.dart';
+import 'package:udemy/screen/chatDetail.dart';
 
 import '../color.dart';
 
@@ -12,7 +14,7 @@ class Chat extends StatelessWidget {
     return Scaffold(
       backgroundColor: white,
       appBar: getAppBar(),
-      body: getBody(size),
+      body: getBody(size, context),
     );
   }
 
@@ -46,7 +48,7 @@ class Chat extends StatelessWidget {
     );
   }
 
-  Widget getBody(size) {
+  Widget getBody(size, context) {
     return ListView(
       children: [
         SizedBox(
@@ -82,7 +84,9 @@ class Chat extends StatelessWidget {
         Column(
             children: List.generate(chats.length, (index) {
           return InkWell(
-            onTap: (){},
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (_) => ChatDetail()));
+            },
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
               child: Row(
