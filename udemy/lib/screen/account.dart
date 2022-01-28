@@ -36,6 +36,7 @@ class Account extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
+          SizedBox(height: 60,),
           Center(
             child: Column(children: [
               Stack(clipBehavior: Clip.none, children: [
