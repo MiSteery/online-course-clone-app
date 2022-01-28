@@ -15,7 +15,8 @@ class _ChatDetailState extends State<ChatDetail> {
     return Scaffold(
       backgroundColor: white,
       appBar: getAppBar(),
-      body: Text('chat detail'),
+      body: getBody(),
+
     );
   }
 
@@ -128,4 +129,10 @@ class _ChatDetailState extends State<ChatDetail> {
       ),
     );
   }
+
+Widget getBody(){
+  return Column(
+
+  );
+}
 }
