@@ -104,7 +104,15 @@ class _ChatDetailState extends State<ChatDetail> {
                       icon: Icon(
                         Icons.videocam,
                         color: grey,
-                      ))
+                      ),
+                      ),
+                      IconButton(
+                      onPressed: () {},
+                      icon: Icon(
+                        Icons.phone_in_talk,
+                        color: grey,
+                      ),
+                      ),
                 ],
               )
             ],
