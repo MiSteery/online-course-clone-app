@@ -72,11 +72,21 @@ class _ChatDetailState extends State<ChatDetail> {
                   width: 15,
                 ),
                 Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
                       chats[0]['name'],
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 3,),
+                     Text(
+                     'online',
+                      style: TextStyle(
+                       fontSize: 11,
+                       color: grey,
                       ),
                     )
                   ],
