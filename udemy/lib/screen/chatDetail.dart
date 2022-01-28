@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:line_icons/line_icon.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:udemy/color.dart';
+
 import 'package:udemy/model/chat.dart';
 import 'package:udemy/model/chatDetail.dart';
 import 'package:udemy/model/constant.dart';
