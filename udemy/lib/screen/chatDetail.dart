@@ -151,13 +151,19 @@ class _ChatDetailState extends State<ChatDetail> {
             height: 20,
           ),
           Column(
-            children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal:10),
-              child: ChatBubble(),
-            )
-            ],
-          )
+              children: List.generate(chatDetails.length, (index) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: ChatBubble(
+                isMe: chatDetails[index]['isMe'],
+                isSeen: chatDetails[index]['isSeen'],
+                imageUrl: chatDetails[index]['imageUrl'],
+                message: chatDetails[index]['message'],
+                messageNo: chatDetails[index]['messageNo'],
+                dateTime: chatDetails[index]['dateTime'],
+              ),
+            );
+          }))
         ],
       )),
       Container(
@@ -240,69 +246,131 @@ class _ChatDetailState extends State<ChatDetail> {
   }
 }
 
-
 class ChatBubble extends StatelessWidget {
-  final bool ? isMe, isSeen;
-  final String ?imageUrl, message, dateTime;
-  final int ? messageNo;
+  final bool? isMe, isSeen;
+  final String? imageUrl, message, dateTime;
+  final int? messageNo;
 
-  const ChatBubble({ Key? key, this.isMe, this.isSeen, this.imageUrl, this.message, this.dateTime, this.messageNo }) : super(key: key);
+  const ChatBubble({
+    Key? key,
+    this.isMe,
+    this.isSeen,
+    this.imageUrl,
+    this.message,
+    this.dateTime,
+    this.messageNo,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return   Row(children: [
-                Container(
-                  height: 33,
-                  width: 33,
-                  decoration: BoxDecoration(
+    if (isMe!) {
+      return Padding(
+        padding: const EdgeInsets.only(top: 4, bottom: 2),
+        child:
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Container(
+                decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    image: DecorationImage(
-                      image: NetworkImage(chats[0]['imageUrl']),
-                      fit: BoxFit.cover,
-                    ),
+                    color: grey.withOpacity(0.2)),
+                child: Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: Text(
+                    message!,
+                    style: TextStyle(fontSize: 15),
                   ),
                 ),
-                SizedBox(
-                  width: 10,
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: grey.withOpacity(0.2)),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8),
-                        child: Text(
-                          chatDetails[0]['message'],
-                          style: TextStyle(fontSize: 15),
-                        ),
+              ),
+              isSeen == true ?
+              Padding(
+                  padding: const EdgeInsets.only(top: 5),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Icon(
+                        LineIcons.doubleCheck,
+                        size: 14,
+                        color: grey,
                       ),
-                    ),
-                    Padding(
-                        padding: const EdgeInsets.only(top: 5),
-                        child: Row(
-                          children: [
-                            Icon(
-                              LineIcons.doubleCheck,
-                              size: 14,
-                              color: grey,
-                            ),
-                            SizedBox(
-                              width: 3,
-                            ),
-                            Text(
-                              chatDetails[0]['dateTime'],
-                              style: TextStyle(
-                                fontSize: 11,
-                                color: grey,
-                              ),
-                            )
-                          ],
-                        ))
-                  ],
-                )
-              ]);
+                      SizedBox(
+                        width: 3,
+                      ),
+                      Text(
+                        dateTime!,
+                        style: TextStyle(
+                          fontSize: 11,
+                          color: grey,
+                        ),
+                      )
+                    ],
+                  ),
+                  ):
+                  Container(),
+            ],
+          )
+        
+      );
+    } else {
+      return Padding(
+         padding: const EdgeInsets.only(top: 4, bottom: 2),
+        child: Row(children: [
+          Container(
+            height: 33,
+            width: 33,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              image: DecorationImage(
+                image: NetworkImage(imageUrl!),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          SizedBox(
+            width: 10,
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: grey.withOpacity(0.2)),
+                child: Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: Text(
+                   message!,
+                    style: TextStyle(fontSize: 15),
+                  ),
+                ),
+              ),
+              isSeen ! ?
+              Padding(
+                  padding: const EdgeInsets.only(top: 5),
+                  child: Row(
+                    children: [
+                      Icon(
+                        LineIcons.doubleCheck,
+                        size: 14,
+                        color: grey,
+                      ),
+                      SizedBox(
+                        width: 3,
+                      ),
+                      Text(
+                      dateTime!,
+                        style: TextStyle(
+                          fontSize: 11,
+                          color: grey,
+                        ),
+                      )
+                    ],
+                  ),
+                  ):Container(),
+            ],
+          )
+        ]),
+      );
+    }
   }
 }
