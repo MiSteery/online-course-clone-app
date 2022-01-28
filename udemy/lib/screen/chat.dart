@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'package:udemy/model/chat.dart';
 import 'package:udemy/screen/chatDetail.dart';
-
 import '../color.dart';
 
 class Chat extends StatefulWidget {
