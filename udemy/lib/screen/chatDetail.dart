@@ -159,6 +159,18 @@ children:[
               border: Border.all(width: 1, color: grey),
               color: white,
             ),
+            child: Row(
+              children: [
+                Container(
+                  width: (size.width -40)*0.1,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: grey.withOpacity(0.1),
+                  ),
+                  child: Icon(Icons.add, color: primary,),
+                )
+              ],
+            ),
           )
         ],
       ),
