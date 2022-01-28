@@ -152,7 +152,10 @@ class _ChatDetailState extends State<ChatDetail> {
           ),
           Column(
             children: [
-            ChatBubble()
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal:10),
+              child: ChatBubble(),
+            )
             ],
           )
         ],
