@@ -143,6 +143,25 @@ class _ChatDetailState extends State<ChatDetail> {
               'Today',
               style: TextStyle(color: grey, fontSize: 13),
             ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Column(
+            children: [
+              Row(
+                children:[ Container(
+                    height: 33,
+                    width: 33,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        image: DecorationImage(
+                          image: NetworkImage(chats[0]['imageUrl']),
+                          fit: BoxFit.cover,
+                        ))),
+                ]
+              )
+            ],
           )
         ],
       )),
